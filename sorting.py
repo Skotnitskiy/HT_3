@@ -21,3 +21,11 @@ def selection_sort(lst):
                 min_index = j  # then write index with smaller element in m
         lst[current_index], lst[min_index] = lst[min_index], lst[current_index]
     return lst
+
+
+def bubble_sort(lst):
+    ln_lst = len(lst)
+    for j in range(ln_lst - 1, 0, -1):
+        for i in range(j):
+            if lst[i] > lst[i + 1]:
+                lst[i], lst[i + 1] = lst[i + 1], lst[i]
