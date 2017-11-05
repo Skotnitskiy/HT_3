@@ -29,3 +29,12 @@ def bubble_sort(lst):
         for i in range(j):
             if lst[i] > lst[i + 1]:
                 lst[i], lst[i + 1] = lst[i + 1], lst[i]
+
+
+def insertion_sort(lst):
+    ln_lst = len(lst)
+    for i in range(ln_lst):
+        j = i - 1
+        while j >= 0 and lst[j] > lst[j + 1]:
+            lst[j], lst[j + 1] = lst[j + 1], lst[j]
+            j -= 1
