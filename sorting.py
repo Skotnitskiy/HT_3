@@ -1,12 +1,13 @@
 from random import randint
 import random
+import datetime
 
 
 def get_random_list(rng, low=2, high=8, type="int"):
     if type is "float":
         lst = [random.uniform(low, high) for i in range(rng)]
     elif type is "int":
-        lst = [randint(0, 8000) for i in range(rng)]
+        lst = [randint(0, 99) for i in range(rng)]
     return lst
 
 
@@ -38,3 +39,29 @@ def insertion_sort(lst):
         while j >= 0 and lst[j] > lst[j + 1]:
             lst[j], lst[j + 1] = lst[j + 1], lst[j]
             j -= 1
+
+
+test_list = get_random_list(100000)
+selection_sort_list = list(test_list)
+insertion_sort_list = list(test_list)
+bubble_sort_list = list(test_list)
+
+before = datetime.datetime.now()
+selection_sort(selection_sort_list)
+after = (datetime.datetime.now() - before)
+standart_sort_list = list(test_list)
+standart_sort_list.sort()
+print("selection sort time", after, "correctly sorted = ",
+      True if standart_sort_list == selection_sort_list else False)
+
+before = datetime.datetime.now()
+insertion_sort(insertion_sort_list)
+after = (datetime.datetime.now() - before)
+print("insertion sort time", after, "correctly sorted = ",
+      True if standart_sort_list == insertion_sort_list else False)
+
+before = datetime.datetime.now()
+bubble_sort(bubble_sort_list)
+after = (datetime.datetime.now() - before)
+print("bubble sort time", after, "correctly sorted = ",
+      True if standart_sort_list == bubble_sort_list else False)
